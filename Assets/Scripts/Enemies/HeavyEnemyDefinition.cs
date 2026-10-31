@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class HeavyEnemyDefinition : MonoBehaviour
+public class HeavyEnemyDefinition : EnemyDefinition
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public HeavyEnemyDefinition()
+        : base("Heavy Enemy", 100)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

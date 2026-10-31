@@ -1,16 +1,44 @@
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+using UnityEngine;
+
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private int currentHealth;
+    private bool isDead;
+    private WaveManager waveManager;
+
+    public void Initialize(int startingHealth, WaveManager manager)
     {
-        
+        currentHealth = Mathf.Max(1, startingHealth);
+        waveManager = manager;
+        isDead = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        
+        if (isDead || damage <= 0)
+        {
+            return;
+        }
+
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        isDead = true;
+
+        if (waveManager != null)
+        {
+            waveManager.NotifyEnemyDefeated();
+        }
+
+        gameObject.SetActive(false);
     }
 }

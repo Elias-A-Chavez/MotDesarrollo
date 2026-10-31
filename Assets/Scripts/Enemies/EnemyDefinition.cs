@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class EnemyDefinition : MonoBehaviour
+public abstract class EnemyDefinition
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private string enemyName;
+    private int startingHealth;
+
+    protected EnemyDefinition(string name, int startingHealth)
     {
-        
+        this.enemyName = name;
+        this.startingHealth = startingHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public string GetName()
     {
-        
+        return enemyName;
+    }
+
+    public int GetStartingHealth()
+    {
+        return startingHealth;
     }
 }

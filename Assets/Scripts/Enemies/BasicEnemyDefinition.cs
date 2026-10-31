@@ -1,16 +1,9 @@
-using UnityEngine;
+    using UnityEngine;
 
-public class BasicEnemyDefinition : MonoBehaviour
+public class BasicEnemyDefinition : EnemyDefinition
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public BasicEnemyDefinition()
+        : base("Basic Enemy", 50)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
