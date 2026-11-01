@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e662a671c8c2aaf4290313077e4db721
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 365212
+  packageName: Frontier - Engineer's Pipe Wrench (Free Sample)
+  packageVersion: 1.0
+  assetPath: Assets/ML/FrontierEngineersPipeWrench/URP/Materials/Variants/NeutralGrey_Clean/FEPW_1_NeutralGrey_Clean_URP.mat
+  uploadId: 872558
