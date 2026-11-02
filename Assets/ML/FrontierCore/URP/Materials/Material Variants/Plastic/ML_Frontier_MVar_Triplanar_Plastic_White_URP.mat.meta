@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f6d908448b08ec44286b2a9b8a517488
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 365212
+  packageName: Frontier - Engineer's Pipe Wrench (Free Sample)
+  packageVersion: 1.0
+  assetPath: Assets/ML/FrontierCore/URP/Materials/Material Variants/Plastic/ML_Frontier_MVar_Triplanar_Plastic_White_URP.mat
+  uploadId: 872558

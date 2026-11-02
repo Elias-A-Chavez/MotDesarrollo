@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ede9353a86502184fa933da65823cebb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 365212
+  packageName: Frontier - Engineer's Pipe Wrench (Free Sample)
+  packageVersion: 1.0
+  assetPath: Assets/ML/FrontierEngineersPipeWrench/HDRP/Materials/Variants/MedicRed_Clean/FEPW_1_MedicRed_Clean_HDRP.mat
+  uploadId: 872558

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e0b9900bf26265542a00f25b6b976acb
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 365212
+  packageName: Frontier - Engineer's Pipe Wrench (Free Sample)
+  packageVersion: 1.0
+  assetPath: Assets/ML/FrontierCore/URP/Shaders/SubGraphs/Functions/MLRegionFuncs.hlsl
+  uploadId: 872558
