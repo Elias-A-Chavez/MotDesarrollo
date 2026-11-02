@@ -2,15 +2,28 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject door;
+    [SerializeField] private BossActivation bossActivation;
 
-    // Update is called once per frame
-    void Update()
+    private bool isOpen;
+
+    public void OpenDoor()
     {
-        
+        if (isOpen)
+        {
+            return;
+        }
+
+        isOpen = true;
+
+        if (door != null)
+        {
+            door.SetActive(false);
+        }
+
+        if (bossActivation != null)
+        {
+            bossActivation.ActivateBoss();
+        }
     }
 }
