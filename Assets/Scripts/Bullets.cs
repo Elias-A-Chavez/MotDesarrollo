@@ -1,16 +1,31 @@
 using UnityEngine;
 
-public class Bullets : MonoBehaviour
+public class Bullets : MonoBehaviour, IInteractable
+
+
+
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Interact()
     {
-        
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        Destroy(gameObject, 5);
+    }
+
+ 
     void Update()
     {
-        
+        transform.Translate(40 * Time.deltaTime, 0, 0);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
