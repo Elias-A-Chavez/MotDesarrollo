@@ -2,15 +2,24 @@ using UnityEngine;
 
 public class ItemEncounterTrigger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private WaveManager waveManager;
 
-    // Update is called once per frame
-    void Update()
+    private bool encounterTriggered;
+
+    public void StartEncounter()
     {
-        
+        if (encounterTriggered)
+        {
+            return;
+        }
+
+        if (waveManager == null)
+        {
+            Debug.LogError("WaveManager is not assigned.");
+            return;
+        }
+
+        encounterTriggered = true;
+        waveManager.StartEncounter();
     }
 }

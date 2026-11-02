@@ -2,15 +2,24 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private ItemEncounterTrigger encounterTrigger;
 
-    // Update is called once per frame
-    void Update()
+    private bool isCollected;
+
+    public void CollectItem()
     {
-        
+        if (isCollected)
+        {
+            return;
+        }
+
+        isCollected = true;
+
+        if (encounterTrigger != null)
+        {
+            encounterTrigger.StartEncounter();
+        }
+
+        gameObject.SetActive(false);
     }
 }
