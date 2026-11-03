@@ -83,9 +83,9 @@ public class WaveManager : MonoBehaviour
     {
         encounterCompleted = true;
 
-        if (doorController != null)
-        {
+       if (doorController != null)
+       {
             doorController.OpenDoor();
-        }
+       }
     }
 }   
