@@ -1,16 +1,47 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class EscapeButtonController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Button escapeButton;
+    [SerializeField] private UnityEvent escapeAction;
+
+    private bool bossDefeated;
+
+    private void Start()
     {
-        
+        if (escapeButton != null)
+        {
+            escapeButton.interactable = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void NotifyBossDefeated()
     {
-        
+        if (bossDefeated)
+        {
+            return;
+        }
+
+        bossDefeated = true;
+
+        if (escapeButton != null)
+        {
+            escapeButton.interactable = true;
+        }
+    }
+
+    public void Escape()
+    {
+        if (!bossDefeated)
+        {
+            return;
+        }
+
+        if (escapeAction != null)
+        {
+            escapeAction.Invoke();
+        }
     }
 }
