@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a29848c6cbdc245439fd7641ab34b8bc
+timeCreated: 1559754111
+licenseType: Store
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 168575
+  packageName: Battle Royale UI System
+  packageVersion: 1.2
+  assetPath: Assets/Battle Royale UI - V1.2/Scenes/BattleRoyaleUI_TestScene.unity
+  uploadId: 670151

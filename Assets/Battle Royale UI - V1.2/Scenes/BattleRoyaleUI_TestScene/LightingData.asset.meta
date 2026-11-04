@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7d14de9a21bb86c448a9da21e4634a99
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 168575
+  packageName: Battle Royale UI System
+  packageVersion: 1.2
+  assetPath: Assets/Battle Royale UI - V1.2/Scenes/BattleRoyaleUI_TestScene/LightingData.asset
+  uploadId: 670151

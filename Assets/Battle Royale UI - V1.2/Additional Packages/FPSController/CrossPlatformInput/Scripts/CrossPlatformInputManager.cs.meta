@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6ac1ce5a5adfd9f46adbf5b6f752a47c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 168575
+  packageName: Battle Royale UI System
+  packageVersion: 1.2
+  assetPath: Assets/Battle Royale UI - V1.2/Additional Packages/FPSController/CrossPlatformInput/Scripts/CrossPlatformInputManager.cs
+  uploadId: 670151
