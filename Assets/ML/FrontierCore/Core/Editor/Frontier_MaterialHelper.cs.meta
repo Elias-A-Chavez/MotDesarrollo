@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0b12bba7765f5214795ace18a5092e5a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 365212
+  packageName: Frontier - Engineer's Pipe Wrench (Free Sample)
+  packageVersion: 1.0
+  assetPath: Assets/ML/FrontierCore/Core/Editor/Frontier_MaterialHelper.cs
+  uploadId: 872558

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c865fa4b02d58234998a1785e083db81
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 168575
+  packageName: Battle Royale UI System
+  packageVersion: 1.2
+  assetPath: Assets/Battle Royale UI - V1.2/Prefabs/Managers/BR Audio Manager.prefab
+  uploadId: 670151

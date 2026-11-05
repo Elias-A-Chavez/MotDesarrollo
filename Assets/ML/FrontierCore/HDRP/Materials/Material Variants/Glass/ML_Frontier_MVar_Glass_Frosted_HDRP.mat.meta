@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f87293aaad63aa048b9da1c42da4aef7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 365212
+  packageName: Frontier - Engineer's Pipe Wrench (Free Sample)
+  packageVersion: 1.0
+  assetPath: Assets/ML/FrontierCore/HDRP/Materials/Material Variants/Glass/ML_Frontier_MVar_Glass_Frosted_HDRP.mat
+  uploadId: 872558

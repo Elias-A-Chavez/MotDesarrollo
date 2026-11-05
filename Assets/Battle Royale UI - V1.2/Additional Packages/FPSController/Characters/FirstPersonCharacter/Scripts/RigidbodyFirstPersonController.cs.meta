@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 81c9795a96c094f4cbde4d65546aa9b2
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 168575
+  packageName: Battle Royale UI System
+  packageVersion: 1.2
+  assetPath: Assets/Battle Royale UI - V1.2/Additional Packages/FPSController/Characters/FirstPersonCharacter/Scripts/RigidbodyFirstPersonController.cs
+  uploadId: 670151
