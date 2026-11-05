@@ -17977,7 +17977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &328659610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18096,7 +18096,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328659609}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1001 &329411923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55217,15 +55217,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3309240775348096311, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9
+      value: -8.97
       objectReference: {fileID: 0}
     - target: {fileID: 3309240775348096311, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.17
+      value: 2.53
       objectReference: {fileID: 0}
     - target: {fileID: 3309240775348096311, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.11
+      value: -69.06
       objectReference: {fileID: 0}
     - target: {fileID: 3309240775348096311, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
       propertyPath: m_LocalRotation.w
@@ -66036,7 +66036,7 @@ Transform:
   m_GameObject: {fileID: 1303585810}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.95861, y: -0, z: -54.29895}
+  m_LocalPosition: {x: 9.74, y: 6.23, z: -73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85346,6 +85346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CyberSoldier
       objectReference: {fileID: 0}
+    - target: {fileID: 421599980976449857, guid: f0035082c3093874a92453ca38e67f46, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.7943
@@ -85368,7 +85372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.86
+      value: -12.66
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalRotation.w
@@ -85401,13 +85405,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 421599980976449857, guid: f0035082c3093874a92453ca38e67f46, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1689895150}
   m_SourcePrefab: {fileID: 100100000, guid: f0035082c3093874a92453ca38e67f46, type: 3}
 --- !u!1 &1689895146 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 421599980976449857, guid: f0035082c3093874a92453ca38e67f46, type: 3}
   m_PrefabInstance: {fileID: 1689895145}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1689895150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689895146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60665120fff80b647b4bdaa8392ce847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
 --- !u!1001 &1691393418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91345,21 +91364,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 421599980976449857, guid: f0035082c3093874a92453ca38e67f46, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.7943
+      value: 4.8441987
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.7943
+      value: 4.8441987
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.7943
+      value: 4.8441987
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.352
+      value: 26.29
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalPosition.y
@@ -91367,23 +91390,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.86
+      value: 26.07
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.43321246
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.90129185
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -91391,7 +91414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -128.657
       objectReference: {fileID: 0}
     - target: {fileID: 421599980976747875, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -91405,6 +91428,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 421599980976449857, guid: f0035082c3093874a92453ca38e67f46, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1758286194}
+    - targetCorrespondingSourceObject: {fileID: 421599980976449857, guid: f0035082c3093874a92453ca38e67f46, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1758286197}
   m_SourcePrefab: {fileID: 100100000, guid: f0035082c3093874a92453ca38e67f46, type: 3}
 --- !u!1 &1758286193 stripped
 GameObject:
@@ -91426,6 +91452,18 @@ MonoBehaviour:
   boss: {fileID: 1758286193}
   bossStartingHealth: 100
   escapeButtonController: {fileID: 2003674810}
+--- !u!114 &1758286197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758286193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60665120fff80b647b4bdaa8392ce847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
 --- !u!1001 &1758587572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107145,7 +107183,7 @@ Transform:
   m_GameObject: {fileID: 2066133669}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.45, y: -0, z: -54.29895}
+  m_LocalPosition: {x: -44.72, y: 6.13, z: -69.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -108734,6 +108772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb69424c43f7ecd43973f60979284397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  interactionRadius: 9
   encounterTrigger: {fileID: 463930782}
   interactionText: {fileID: 328659611}
 --- !u!65 &2096147827

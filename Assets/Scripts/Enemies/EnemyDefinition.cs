@@ -16,7 +16,7 @@ public abstract class EnemyDefinition
     {
         return enemyName;
     }
-
+    
     public int GetStartingHealth()
     {
         return startingHealth;
