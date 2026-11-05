@@ -5,6 +5,7 @@ public abstract class EnemyDefinition
     private string enemyName;
     private int startingHealth;
 
+
     protected EnemyDefinition(string name, int startingHealth)
     {
         this.enemyName = name;
