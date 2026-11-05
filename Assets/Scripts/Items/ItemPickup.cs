@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-
+    [SerializeField] private float interactionRadius = 9f;
     [SerializeField] private ItemEncounterTrigger encounterTrigger;
     [SerializeField] private TextMeshProUGUI interactionText;
     private bool playerNearby = false;
     private bool isCollected;
-
+    private Transform player;
     public void CollectItem()
     {
         if (isCollected)
@@ -52,6 +52,15 @@ public class ItemPickup : MonoBehaviour
 
     private void Update()
     {
+        if (player == null)
+            return;
+
+        float distance = Vector3.Distance(transform.position, player.position);
+
+        bool playerNearby = distance <= interactionRadius;
+
+        interactionText.gameObject.SetActive(playerNearby);
+
         if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
             gameObject.SetActive(false);
