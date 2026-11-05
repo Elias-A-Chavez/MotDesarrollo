@@ -1,33 +1,26 @@
 using UnityEngine;
 
-public class GunBullet : MonoBehaviour
+public class BulletBehavior : MonoBehaviour
 {
-    private int damage;
-    public float lifetime = 5f;
-
-    public void SetDamage(int dmg)
-    {
-        damage = dmg;
-    }
+    public float speed = 50f; // Asegúrate de que la velocidad sea alta
+    public float lifetime = 3f;
 
     void Start()
     {
         Destroy(gameObject, lifetime);
     }
 
-    void OnTriggerEnter(Collider other)
+    void Update()
     {
-        if (other.CompareTag("Enemy"))
-        {
-            
-            //Basic_Entity enemy = other.GetComponent<Basic_Entity>();
-           // if (enemy != null)
-            {
-                //enemy.GetDamage(damage);
-            }
-        }
+        // Space.Self obliga a la bala a viajar hacia SU propio frente (eje azul Z positivo)
+        transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
+    }
 
-        
+    private void OnTriggerEnter(Collider other)
+    {
+        // Evita que la bala se rompa a sí misma si roza al jugador o disparadores
+        if (other.CompareTag("Player") || other.isTrigger) return;
+
         Destroy(gameObject);
     }
 }
