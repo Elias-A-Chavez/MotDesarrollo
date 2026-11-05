@@ -1,6 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EscapeButtonController : MonoBehaviour
 {
@@ -39,9 +40,6 @@ public class EscapeButtonController : MonoBehaviour
             return;
         }
 
-        if (escapeAction != null)
-        {
-            escapeAction.Invoke();
-        }
+        SceneManager.LoadScene("Victory");
     }
 }
