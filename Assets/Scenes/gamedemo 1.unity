@@ -126229,6 +126229,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1876464087427254630, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 88b0cbdbd97d6474db373a981b3885d3, type: 2}
     - target: {fileID: 3309240775348096311, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2
@@ -126296,6 +126300,10 @@ PrefabInstance:
     - target: {fileID: 5618227510674292422, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
       propertyPath: _walkSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618227510674292422, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
