@@ -1,69 +1,56 @@
+using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine;
-
 public class ItemPickup : MonoBehaviour
 {
-    [SerializeField] private float interactionRadius = 9f;
+    [SerializeField] private float interactionRadius = 6f;
     [SerializeField] private ItemEncounterTrigger encounterTrigger;
     [SerializeField] private TextMeshProUGUI interactionText;
+
     private bool playerNearby = false;
-    private bool isCollected;
+    private bool isCollected = false;
+
     private Transform player;
-    public void CollectItem()
-    {
-        if (isCollected)
-        {
-            return;
-        }
-
-        isCollected = true;
-
-        if (encounterTrigger != null)
-        {
-            encounterTrigger.StartEncounter();
-        }
-
-        gameObject.SetActive(false);
-    }
-
 
     private void Start()
     {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+        }
+
         interactionText.gameObject.SetActive(false);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerNearby = true;
-            interactionText.gameObject.SetActive(true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerNearby = false;
-            interactionText.gameObject.SetActive(false);
-        }
     }
 
     private void Update()
     {
-        if (player == null)
+        if (player == null || isCollected)
             return;
 
         float distance = Vector3.Distance(transform.position, player.position);
 
-        bool playerNearby = distance <= interactionRadius;
+        playerNearby = distance <= interactionRadius;
 
         interactionText.gameObject.SetActive(playerNearby);
 
-        if (playerNearby && Input.GetKeyDown(KeyCode.E))
+        if (playerNearby && Keyboard.current != null &&
+            Keyboard.current.eKey.wasPressedThisFrame)
         {
-            gameObject.SetActive(false);
+            CollectItem();
         }
+    }
+
+    public void CollectItem()
+    {
+        if (isCollected)
+            return;
+
+        isCollected = true;
+
+        encounterTrigger.StartEncounter();
+
+        gameObject.SetActive(false);
     }
 }

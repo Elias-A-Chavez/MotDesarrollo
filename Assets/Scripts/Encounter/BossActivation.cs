@@ -45,4 +45,4 @@ public class BossActivation : MonoBehaviour
         bossActivated = true;
         boss.SetActive(true);
     }
-}
+}   
