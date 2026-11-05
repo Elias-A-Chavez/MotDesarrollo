@@ -27,7 +27,7 @@ public class ThirdPersonController : MonoBehaviour
         rb.freezeRotation = true;
         rb.angularVelocity = Vector3.zero;
 
-        // Si no se asigna en el Inspector, busca el Animator en los componentes hijos
+        // Si no se asigna en el inspector, busca el animator en los componentes hijos
         if (animator == null)
         {
             animator = GetComponentInChildren<Animator>();
@@ -122,7 +122,7 @@ public class ThirdPersonController : MonoBehaviour
 
     bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        return Physics.Raycast(transform.position, Vector3.down, 0.2f);
     }
 
     void PositionCamera()
