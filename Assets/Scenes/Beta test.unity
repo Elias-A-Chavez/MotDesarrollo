@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: a4be220830e90ea4eb88b48b7fd376ce, type: 2}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -18394,19 +18394,27 @@ MonoBehaviour:
     m_Action:
       m_Name: Look
       m_Type: 0
-      m_ExpectedControlType: 
+      m_ExpectedControlType: Vector2
       m_Id: 73c532a9-f2c3-4a97-92ec-8e33cfa7f20e
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: e9abcd02-5ab8-41ec-9ac1-5733fcdde392
+        m_Path: <Mouse>/delta
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Look
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   distance: 5
-  height: 2
+  height: 5
   mouseSensitivity: 0.1
   smoothSpeed: 10
-  pitchMinMax: {x: -40, y: 85}
-  cameraCollisionOffset: 0.2
+  pitchMinMax: {x: -40, y: 75}
+  cameraCollisionOffset: 0.3
   collisionLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -23797,6 +23805,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 458006, guid: 588955be0a3f24f3587555cad73fae83, type: 3}
   m_PrefabInstance: {fileID: 247141643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &468576093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5142840920929998551, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
+  m_PrefabInstance: {fileID: 1051069095}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &470237576
 PrefabInstance:
@@ -55274,13 +55287,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5142840920929998551, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1051069098}
+    - targetCorrespondingSourceObject: {fileID: 5142840920929998551, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1051069097}
   m_SourcePrefab: {fileID: 100100000, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
 --- !u!4 &1051069096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3309240775348096311, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
   m_PrefabInstance: {fileID: 1051069095}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1051069097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468576093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29048fdbaf2dfa443af9e6b463e6a868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
+  currentBullets: 10
+  maxBullets: 40
+--- !u!114 &1051069098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468576093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8c6b34e4d14e4458b6be70b97c2146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 1000
+  currentHealth: 0
+  regenRate: 1
+  regenDelay: 5
+  defeatSceneName: Defeat
 --- !u!1001 &1051344243
 PrefabInstance:
   m_ObjectHideFlags: 0
