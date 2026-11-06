@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7924530069148709341}
   - component: {fileID: 8718598800578608308}
   - component: {fileID: 8649193777717975908}
-  - component: {fileID: -1057276633607583139}
+  - component: {fileID: 8483941776682744097}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: Untagged
@@ -108,7 +108,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -139,11 +139,11 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-1057276633607583139
+--- !u!114 &8483941776682744097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,8 +152,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1769772400217593367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aecccdebaf63c8f4ea14f6230e7b4e9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 735480ee976826748b597356a0495028, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bullets
-  speed: 10
-  lifeTime: 10
+  m_EditorClassIdentifier: Assembly-CSharp::BulletDamage
+  damage: 25
+  lifetime: 5
