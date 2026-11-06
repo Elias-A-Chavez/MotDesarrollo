@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8ecc90b25d20d5a438960a6729c64b37
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 365212
+  packageName: Frontier - Engineer's Pipe Wrench (Free Sample)
+  packageVersion: 1.0
+  assetPath: Assets/ML/FrontierEngineersPipeWrench/HDRP/Prefabs/FEPW_Pipewrench.prefab
+  uploadId: 872558

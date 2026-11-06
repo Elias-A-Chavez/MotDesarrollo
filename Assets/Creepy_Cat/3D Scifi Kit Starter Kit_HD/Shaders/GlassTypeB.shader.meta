@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: afe15741ee570e84ea66bdd5c43b0839
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92152
+  packageName: 3D Scifi Kit Starter Kit
+  packageVersion: 3.5
+  assetPath: Assets/Creepy_Cat/3D Scifi Kit Starter Kit_HD/Shaders/GlassTypeB.shader
+  uploadId: 903402

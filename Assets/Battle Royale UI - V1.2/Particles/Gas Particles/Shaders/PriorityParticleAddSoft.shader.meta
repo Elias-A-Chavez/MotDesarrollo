@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 694eef9939f180440a9d0891272eddba
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 168575
+  packageName: Battle Royale UI System
+  packageVersion: 1.2
+  assetPath: Assets/Battle Royale UI - V1.2/Particles/Gas Particles/Shaders/PriorityParticleAddSoft.shader
+  uploadId: 670151

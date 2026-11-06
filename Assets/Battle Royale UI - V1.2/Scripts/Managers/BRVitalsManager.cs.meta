@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1bff0eacbb5771348a08ca6383333fe1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 168575
+  packageName: Battle Royale UI System
+  packageVersion: 1.2
+  assetPath: Assets/Battle Royale UI - V1.2/Scripts/Managers/BRVitalsManager.cs
+  uploadId: 670151
