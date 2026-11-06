@@ -3,40 +3,66 @@ using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
-    public Transform bulletSpawn;
-    public GameObject bulletPrefab;
-    public float fireRate = 0.2f;
-    private float nextFireTime = 0f;
+    [SerializeField] private Transform bulletSpawn;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float fireRate = 0.2f;
+    [SerializeField] private float aimDistance = 500f;
 
+    private float nextFireTime;
     private Camera mainCamera;
 
-    void Start()
+    private void Start()
     {
         mainCamera = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    void Update()
+    private void Update()
     {
-        // Detección directa del click usando el nuevo Input System
-        if (Pointer.current != null && Pointer.current.press.isPressed && Time.time >= nextFireTime)
-        {
-            nextFireTime = Time.time + fireRate;
-            Shoot();
-        }
+        if (Pointer.current == null) return;
+        if (!Pointer.current.press.isPressed) return;
+        if (Time.time < nextFireTime) return;
+
+        nextFireTime = Time.time + fireRate;
+        Shoot();
     }
 
-    void Shoot()
+    private void Shoot()
     {
-        if (mainCamera == null || bulletSpawn == null || bulletPrefab == null) return;
+        
+        if (mainCamera == null || bulletSpawn == null || bulletPrefab == null)
+        {
+            return;
+        }
 
-        // SOLUCIÓN RADICAL: Ignoramos el modelo del arma y usamos estrictamente 
-        // la rotación e inclinación exacta de la Cámara Principal.
-        Quaternion cameraRotation = mainCamera.transform.rotation;
+        Vector3 aimPoint = GetAimPoint();
+        Vector3 direction = aimPoint - bulletSpawn.position;
 
-        // Clonamos la bala exactamente en la punta del arma, pero mirando hacia donde mira la cámara
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, cameraRotation);
+        if (direction.sqrMagnitude < 0.001f) return;
+
+        
+        
+        Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.LookRotation(direction));
+    }
+    private Vector3 GetAimPoint()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(
+            new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)
+        );
+
+        RaycastHit[] hits = Physics.RaycastAll(ray, aimDistance);
+        System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider.CompareTag("Player")) continue;
+            if (hit.collider.transform.root == bulletSpawn.root) continue;
+
+            return hit.point;
+        }
+
+        return ray.GetPoint(aimDistance);
     }
 }
 

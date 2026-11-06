@@ -13670,11 +13670,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!4 &205830548 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8543990383161043373, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
-  m_PrefabInstance: {fileID: 3907428591257716494}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &207357032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119062,21 +119057,6 @@ MonoBehaviour:
   regenRate: 1
   regenDelay: 5
   defeatSceneName: Defeat
---- !u!114 &2016444627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016444617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2c2e2e0916a509479a840ae15e21008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerShooting
-  bulletSpawn: {fileID: 205830548}
-  bulletPrefab: {fileID: 1769772400217593367, guid: a519f03aee53c45bebfe44df6939bd67, type: 3}
-  fireRate: 0.2
 --- !u!1001 &2017879966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -126462,6 +126442,10 @@ PrefabInstance:
       propertyPath: groundMask.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482743699920710450, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 330585545}
     - target: {fileID: 8543990383161043373, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -126478,9 +126462,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5142840920929998551, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2016444627}
     - targetCorrespondingSourceObject: {fileID: 5142840920929998551, guid: 0a3193e844cab944a8f223d41c186422, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2016444622}

@@ -1,31 +1,28 @@
 using UnityEngine;
 
-public class Bullets : MonoBehaviour, IInteractable
-
-
+public class Bullets : MonoBehaviour
 
 {
-    public void Interact()
-    {
-        throw new System.NotImplementedException();
-    }
+    [SerializeField] private float speed = 30f;
+    [SerializeField] private float lifeTime = 3f;
 
-    void Start()
-    {
-        Destroy(gameObject, 5);
-    }
+    private Rigidbody rb;
 
- 
-    void Update()
+    private void Start()
     {
-        transform.Translate(40 * Time.deltaTime, 0, 0);
+        rb = GetComponent<Rigidbody>();
+
+        rb.useGravity = false;
+
+        rb.linearVelocity = transform.forward * speed;
+
+        Destroy(gameObject, lifeTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
+        // Aquí puedes añadir lógica de daño (ej: collision.gameObject.GetComponent<Enemy>())
+
+        Destroy(gameObject);
     }
 }

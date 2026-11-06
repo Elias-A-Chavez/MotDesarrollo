@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7924530069148709341}
   - component: {fileID: 8718598800578608308}
   - component: {fileID: 8649193777717975908}
-  - component: {fileID: -2688758768205818693}
+  - component: {fileID: -1057276633607583139}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: Untagged
@@ -143,7 +143,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-2688758768205818693
+--- !u!114 &-1057276633607583139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,8 +152,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1769772400217593367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d3c34e15ed08d647a01d297b0266775, type: 3}
+  m_Script: {fileID: 11500000, guid: aecccdebaf63c8f4ea14f6230e7b4e9c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  speed: 50
-  lifetime: 30
+  m_EditorClassIdentifier: Assembly-CSharp::Bullets
+  speed: 10
+  lifeTime: 10

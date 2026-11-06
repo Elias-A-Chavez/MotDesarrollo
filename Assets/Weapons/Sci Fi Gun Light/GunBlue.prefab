@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3183130710286530767}
   - component: {fileID: 6237281576694881348}
   - component: {fileID: 7826782260427249699}
+  - component: {fileID: -4264087433060512655}
   m_Layer: 0
   m_Name: GunBlue
   m_TagString: Untagged
@@ -91,6 +92,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-4264087433060512655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584287114411217754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db93ab3133583904ea7e41a780f54256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponController
+  bulletPrefab: {fileID: 1769772400217593367, guid: a519f03aee53c45bebfe44df6939bd67, type: 3}
+  bulletSpawn: {fileID: 7124032517246822482, guid: 20eb1c7d182b2e441971aeb9ddeabc39, type: 3}
+  mainCamera: {fileID: 0}
+  fireRate: 0.2
 --- !u!1001 &2676780066963367612
 PrefabInstance:
   m_ObjectHideFlags: 0

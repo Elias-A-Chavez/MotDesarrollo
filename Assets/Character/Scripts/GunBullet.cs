@@ -2,23 +2,31 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
-    public float speed = 50f; // Asegúrate de que la velocidad sea alta
-    public float lifetime = 3f;
+    [SerializeField] private float speed = 50f;
+    [SerializeField] private float lifetime = 3f;
 
-    void Start()
+    private void Awake()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.useGravity = false;
+        }
+    }
+
+    private void Start()
     {
         Destroy(gameObject, lifetime);
     }
 
-    void Update()
+    private void Update()
     {
-        // Space.Self obliga a la bala a viajar hacia SU propio frente (eje azul Z positivo)
-        transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Evita que la bala se rompa a sí misma si roza al jugador o disparadores
         if (other.CompareTag("Player") || other.isTrigger) return;
 
         Destroy(gameObject);
