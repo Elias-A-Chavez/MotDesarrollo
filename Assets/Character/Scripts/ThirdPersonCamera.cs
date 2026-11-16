@@ -3,24 +3,15 @@ using UnityEngine.InputSystem;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
-    [Header("References")]
+  
     public Transform player;
-
-    [Header("Input Settings (New Input System)")]
-    [Tooltip("Enlaza aquí la acción de tipo 'Vector 2' que use 'Mouse/delta' o 'Gamepad/rightStick'")]
     public InputActionProperty lookAction;
-
-    [Header("Camera Settings")]
     public float distance = 5f;
     public float height = 2f;
-    public float mouseSensitivity = 0.1f; // Ajustada por defecto ya que los valores Delta del nuevo sistema son diferentes
+    public float mouseSensitivity = 0.1f; 
     public float smoothSpeed = 10f;
     public Vector2 pitchMinMax = new Vector2(-40, 85);
-
-    [Header("Collision Settings")]
     public float cameraCollisionOffset = 0.2f;
-
-    [Tooltip("Layers que pueden bloquear la cámara (excluye 'Player' e 'Ignore Raycast')")]
     public LayerMask collisionLayers = ~0;
 
     private float yaw;
@@ -28,7 +19,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
     void OnEnable()
     {
-        // Asegura que la acción esté habilitada para escuchar inputs
+        
         lookAction.action?.Enable();
     }
 
@@ -62,10 +53,10 @@ public class ThirdPersonCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        // Leer el valor del vector delta utilizando el nuevo Input System
+        
         Vector2 lookInput = lookAction.action != null ? lookAction.action.ReadValue<Vector2>() : Vector2.zero;
 
-        // El nuevo input delta no requiere multiplicarse por Time.deltaTime ya que mide el movimiento por frame físico/de renderizado
+        
         yaw += lookInput.x * mouseSensitivity;
         pitch -= lookInput.y * mouseSensitivity;
         pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
