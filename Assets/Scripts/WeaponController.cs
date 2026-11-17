@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
     public float bulletSpeed = 50f;
+    public AudioSource audioSource;
 
     void Update()
     {
@@ -18,12 +19,13 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(
+        GameObject bullet = Instantiate
+        (
             bulletPrefab,
             bulletSpawnPoint.position,
             bulletSpawnPoint.rotation
         );
-
+        audioSource.Play();
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
         rb.linearVelocity = bulletSpawnPoint.forward * bulletSpeed;
