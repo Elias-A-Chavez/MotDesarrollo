@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public event System.Action Defeated;
 
     private int currentHealth;
+    private int maxHealth;
     private bool isDead;
     private bool isBoss;
 
@@ -12,12 +13,18 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private EnemyPool enemyPool;
     private EscapeButtonController escapeButtonController;
 
+    public int CurrentHealth => currentHealth;
+    public int MaxHealth => maxHealth;
+
     public void Initialize(
-        int startingHealth,
+        EnemyDefinition definition,
         WaveManager manager,
         EnemyPool pool)
     {
-        currentHealth = Mathf.Max(1, startingHealth);
+        int startingHealth = definition != null ? definition.StartingHealth : 1;
+
+        maxHealth = Mathf.Max(1, startingHealth);
+        currentHealth = maxHealth;
 
         waveManager = manager;
         enemyPool = pool;
@@ -31,7 +38,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         int startingHealth,
         EscapeButtonController escapeController)
     {
-        currentHealth = Mathf.Max(1, startingHealth);
+        maxHealth = Mathf.Max(1, startingHealth);
+        currentHealth = maxHealth;
 
         waveManager = null;
         enemyPool = null;
@@ -52,6 +60,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             Die();
         }
     }

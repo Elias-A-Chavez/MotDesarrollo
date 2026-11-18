@@ -3,9 +3,11 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public IEnemyAttackStrategy Attack { get; private set; }
     [SerializeField] private GameObject Player;
-    public NavMeshAgent NavMeshAgent;
+    [SerializeField] private NavMeshAgent NavMeshAgent;
+
+    public IEnemyAttackStrategy Attack { get; private set; }
+
     public void SetAttackStrategy(IEnemyAttackStrategy strategy)
     {
         Attack = strategy;
@@ -19,9 +21,13 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         Attack?.Attack();
-        NavMeshAgent.destination = Player.transform.position; 
+
+        if (NavMeshAgent != null && Player != null)
+        {
+            NavMeshAgent.destination = Player.transform.position;
+        }
     }
 }

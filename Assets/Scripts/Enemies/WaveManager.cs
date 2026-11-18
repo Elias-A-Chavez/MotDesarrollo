@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -6,7 +7,12 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private DoorController doorController;
 
     [SerializeField] private int[] enemiesPerWave;
-    [SerializeField] private int enemyStartingHealth = 30;
+
+    private readonly List<EnemyDefinition> enemyTypes = new List<EnemyDefinition>
+    {
+        new BasicEnemyDefinition(),
+        new HeavyEnemyDefinition()
+    };
 
     private int currentWave;
     private int remainingEnemies;
@@ -46,7 +52,9 @@ public class WaveManager : MonoBehaviour
 
         for (int i = 0; i < enemiesToSpawn; i++)
         {
-            GameObject enemy = enemySpawner.SpawnEnemy(enemyStartingHealth, this);
+            EnemyDefinition definition = enemyTypes[(currentWave + i) % enemyTypes.Count];
+
+            GameObject enemy = enemySpawner.SpawnEnemy(definition, this);
 
             if (enemy == null)
             {
@@ -81,9 +89,9 @@ public class WaveManager : MonoBehaviour
     {
         encounterCompleted = true;
 
-       if (doorController != null)
-       {
+        if (doorController != null)
+        {
             doorController.StartBossFight();
-       }
+        }
     }
-}   
+}

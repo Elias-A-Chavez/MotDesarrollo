@@ -5,8 +5,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private EnemyPool enemyPool;
     [SerializeField] private Transform[] spawnPoints;
 
-    public GameObject SpawnEnemy(int startingHealth, WaveManager manager)
+    public GameObject SpawnEnemy(EnemyDefinition definition, WaveManager manager)
     {
+        if (definition == null)
+        {
+            Debug.LogError("Enemy definition is null.");
+            return null;
+        }
+
         if (enemyPool == null || spawnPoints == null || spawnPoints.Length == 0)
         {
             Debug.LogError("EnemyPool or SpawnPoints are not configured.");
@@ -44,8 +50,10 @@ public class EnemySpawner : MonoBehaviour
             return null;
         }
 
+        enemy.name = definition.Name;
+
         enemyHealth.Initialize(
-            startingHealth,
+            definition,
             manager,
             enemyPool
         );

@@ -3,38 +3,31 @@ using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour
 {
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Animator animatorMc;
 
-    public Rigidbody rb;
-    public Animator animatorMc;
+    [SerializeField] private InputActionProperty moveAction;
+    [SerializeField] private InputActionProperty runAction;
 
-    
-    public InputActionProperty moveAction;
-    
-    public InputActionProperty runAction;
+    [SerializeField] private float _walkSpeed = 3f;
+    [SerializeField] private float _runSpeed = 8f;
+    [SerializeField] private float animationSmoothSpeed = 6f;
 
-    
-    [SerializeField] float _walkSpeed = 3f;
-    [SerializeField] float _runSpeed = 8f;
-    [SerializeField] float animationSmoothSpeed = 6f; 
     private float normalWSpeed;
     private float normalRSpeed;
 
-    
-    [SerializeField] float groundCheckDistance = 0.5f;
-    [SerializeField] LayerMask groundMask;
+    [SerializeField] private float groundCheckDistance = 0.5f;
+    [SerializeField] private LayerMask groundMask;
 
-    
-    public bool canMove = true;
+    [SerializeField] private bool canMove = true;
     [SerializeField] private bool canRun = true;
 
-    
     private Vector2 rawInput;
     private float currentInputX;
     private float currentInputY;
     private Vector3 moveInput;
     private float currentSpeed;
     private Vector3 groundNormal = Vector3.up;
-    private bool isGrounded;
     private bool isRunningInput;
 
     private void Awake()
@@ -43,31 +36,30 @@ public class CharacterMovement : MonoBehaviour
         normalRSpeed = _runSpeed;
     }
 
-    void Start()
+    private void Start()
     {
         if (rb == null) rb = GetComponent<Rigidbody>();
         if (animatorMc == null) animatorMc = GetComponent<Animator>();
 
-        
         if (rb != null)
         {
             rb.freezeRotation = true;
         }
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         moveAction.action?.Enable();
         runAction.action?.Enable();
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         moveAction.action?.Disable();
         runAction.action?.Disable();
     }
 
-    void Update()
+    private void Update()
     {
         CheckGround();
 
@@ -77,61 +69,55 @@ public class CharacterMovement : MonoBehaviour
             return;
         }
 
-        
         rawInput = moveAction.action != null ? moveAction.action.ReadValue<Vector2>() : Vector2.zero;
         isRunningInput = runAction.action != null ? runAction.action.IsPressed() : false;
 
-        
         Vector3 inputDir = new Vector3(rawInput.x, 0f, rawInput.y);
         if (inputDir.sqrMagnitude > 1f)
             inputDir.Normalize();
 
         moveInput = inputDir;
 
-        
         bool hasInput = moveInput.sqrMagnitude > 0.01f;
         bool isRunning = isRunningInput && canRun && hasInput;
 
         currentSpeed = isRunning ? _runSpeed : _walkSpeed;
 
-        
         float targetX = isRunning ? rawInput.x * (_runSpeed / _walkSpeed) : rawInput.x;
         float targetY = isRunning ? rawInput.y * (_runSpeed / _walkSpeed) : rawInput.y;
 
         currentInputX = Mathf.MoveTowards(currentInputX, hasInput ? targetX : 0f, animationSmoothSpeed * Time.deltaTime);
         currentInputY = Mathf.MoveTowards(currentInputY, hasInput ? targetY : 0f, animationSmoothSpeed * Time.deltaTime);
 
-        
-        animatorMc.SetFloat("X", currentInputX);
-        animatorMc.SetFloat("Y", currentInputY);
-        animatorMc.SetBool("Walk", hasInput && !isRunning);
-        animatorMc.SetBool("Run", isRunning);
-        animatorMc.SetBool("CancelAttack", hasInput);
+        if (animatorMc != null)
+        {
+            animatorMc.SetFloat("X", currentInputX);
+            animatorMc.SetFloat("Y", currentInputY);
+            animatorMc.SetBool("Walk", hasInput && !isRunning);
+            animatorMc.SetBool("Run", isRunning);
+        }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (!canMove || moveInput == Vector3.zero)
+        if (!canMove || moveInput == Vector3.zero || rb == null)
             return;
 
-        
         Vector3 worldDir = transform.TransformDirection(moveInput);
         Vector3 slopeDir = Vector3.ProjectOnPlane(worldDir, groundNormal).normalized;
 
         rb.MovePosition(rb.position + slopeDir * currentSpeed * Time.fixedDeltaTime);
     }
 
-    void CheckGround()
+    private void CheckGround()
     {
         if (Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down,
             out RaycastHit hit, groundCheckDistance, groundMask))
         {
-            isGrounded = true;
             groundNormal = hit.normal;
         }
         else
         {
-            isGrounded = false;
             groundNormal = Vector3.up;
         }
     }
@@ -140,18 +126,18 @@ public class CharacterMovement : MonoBehaviour
     {
         moveInput = Vector3.zero;
 
-        
         currentInputX = Mathf.MoveTowards(currentInputX, 0f, animationSmoothSpeed * Time.deltaTime);
         currentInputY = Mathf.MoveTowards(currentInputY, 0f, animationSmoothSpeed * Time.deltaTime);
 
-        animatorMc.SetFloat("X", currentInputX);
-        animatorMc.SetFloat("Y", currentInputY);
-        animatorMc.SetBool("Walk", false);
-        animatorMc.SetBool("Run", false);
-        animatorMc.SetBool("CancelAttack", false);
+        if (animatorMc != null)
+        {
+            animatorMc.SetFloat("X", currentInputX);
+            animatorMc.SetFloat("Y", currentInputY);
+            animatorMc.SetBool("Walk", false);
+            animatorMc.SetBool("Run", false);
+        }
     }
 
-    
     public void SpeedBuffMc()
     {
         _walkSpeed = 6f;

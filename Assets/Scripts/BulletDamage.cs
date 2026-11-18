@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class BulletDamage : MonoBehaviour
 {
-    public int damage = 25;
-    public float lifetime = 3f;
+    [SerializeField] private int damage = 25;
+    [SerializeField] private float lifetime = 3f;
 
-    void Start()
+    private void Start()
     {
         Destroy(gameObject, lifetime);
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         EnemyHealth enemy = collision.gameObject.GetComponentInParent<EnemyHealth>();
 

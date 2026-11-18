@@ -1,14 +1,15 @@
-using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine;
-public class ItemPickup : MonoBehaviour
+using UnityEngine.InputSystem;
+
+public class ItemPickup : MonoBehaviour, IInteractable
 {
     [SerializeField] private float interactionRadius = 6f;
     [SerializeField] private ItemEncounterTrigger encounterTrigger;
     [SerializeField] private TextMeshProUGUI interactionText;
 
-    private bool playerNearby = false;
-    private bool isCollected = false;
+    private bool playerNearby;
+    private bool isCollected;
 
     private Transform player;
 
@@ -21,45 +22,68 @@ public class ItemPickup : MonoBehaviour
             player = playerObject.transform;
         }
 
-        interactionText.gameObject.SetActive(false);
+        SetInteractionTextVisible(false);
     }
 
     private void Update()
     {
         if (player == null || isCollected)
+        {
             return;
+        }
 
         float distance = Vector3.Distance(transform.position, player.position);
 
         playerNearby = distance <= interactionRadius;
 
-        interactionText.gameObject.SetActive(playerNearby);
+        SetInteractionTextVisible(playerNearby);
 
         if (playerNearby && Keyboard.current != null &&
             Keyboard.current.eKey.wasPressedThisFrame)
         {
-            CollectItem();
+            Interact();
         }
+    }
+
+    public void Interact()
+    {
+        CollectItem();
     }
 
     public void CollectItem()
     {
         if (isCollected)
+        {
             return;
+        }
 
         isCollected = true;
 
-        Weapon weapon = player.GetComponentInChildren<Weapon>(true);
-
-        if (weapon != null)
+        if (player != null)
         {
-            weapon.transform.parent.gameObject.SetActive(true);
+            Weapon weapon = player.GetComponentInChildren<Weapon>(true);
+
+            if (weapon != null && weapon.transform.parent != null)
+            {
+                weapon.transform.parent.gameObject.SetActive(true);
+            }
         }
 
-        interactionText.gameObject.SetActive(false);
+        SetInteractionTextVisible(false);
 
-        encounterTrigger.StartEncounter();
+        if (encounterTrigger != null)
+        {
+            encounterTrigger.StartEncounter();
+        }
 
         gameObject.SetActive(false);
+    }
+
+    private void SetInteractionTextVisible(bool visible)
+    {
+        if (interactionText != null)
+        {
+            interactionText.gameObject.SetActive(visible);
+        }
     }
 }

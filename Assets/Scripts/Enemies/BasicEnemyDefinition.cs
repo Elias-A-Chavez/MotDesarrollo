@@ -1,5 +1,3 @@
-    using UnityEngine;
-
 public class BasicEnemyDefinition : EnemyDefinition
 {
     public BasicEnemyDefinition()

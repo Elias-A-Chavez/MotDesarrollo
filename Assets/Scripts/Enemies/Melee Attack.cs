@@ -6,10 +6,10 @@ public class MeleeAttack : IEnemyAttackStrategy
     private readonly Transform enemyTransform;
     private readonly NavMeshAgent agent;
     private readonly GameObject player;
-    private readonly PlayerHealth playerHealth;
+    private readonly IDamageable target;
     private readonly float detectionRadius;
     private readonly float attackRange;
-    private readonly float damage;
+    private readonly int damage;
     private readonly float attackCooldown;
 
     private float nextAttackTime;
@@ -20,7 +20,7 @@ public class MeleeAttack : IEnemyAttackStrategy
         GameObject player,
         float detectionRadius = 10000f,
         float attackRange = 2.5f,
-        float damage = 25f,
+        int damage = 25,
         float attackCooldown = 1f)
     {
         this.enemyTransform = enemyTransform;
@@ -33,7 +33,7 @@ public class MeleeAttack : IEnemyAttackStrategy
 
         if (player != null)
         {
-            playerHealth = player.GetComponent<PlayerHealth>();
+            target = player.GetComponent<IDamageable>();
         }
     }
 
@@ -65,9 +65,9 @@ public class MeleeAttack : IEnemyAttackStrategy
 
         nextAttackTime = Time.time + attackCooldown;
 
-        if (playerHealth != null)
+        if (target != null)
         {
-            playerHealth.TakeDamage(damage);
+            target.TakeDamage(damage);
         }
     }
 }

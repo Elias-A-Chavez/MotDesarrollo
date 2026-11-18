@@ -3,33 +3,36 @@ using UnityEngine.InputSystem;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
-  
-    public Transform player;
-    public InputActionProperty lookAction;
-    public float distance = 5f;
-    public float height = 2f;
-    public float mouseSensitivity = 0.1f; 
-    public float smoothSpeed = 10f;
-    public Vector2 pitchMinMax = new Vector2(-40, 85);
-    public float cameraCollisionOffset = 0.2f;
-    public LayerMask collisionLayers = ~0;
+    [SerializeField] private Transform player;
+    [SerializeField] private InputActionProperty lookAction;
+    [SerializeField] private float distance = 5f;
+    [SerializeField] private float height = 2f;
+    [SerializeField] private float mouseSensitivity = 0.1f;
+    [SerializeField] private float smoothSpeed = 10f;
+    [SerializeField] private Vector2 pitchMinMax = new Vector2(-40, 85);
+    [SerializeField] private float cameraCollisionOffset = 0.2f;
+    [SerializeField] private LayerMask collisionLayers = ~0;
 
     private float yaw;
     private float pitch;
 
-    void OnEnable()
+    private void OnEnable()
     {
-        
         lookAction.action?.Enable();
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         lookAction.action?.Disable();
     }
 
-    void Start()
+    private void Start()
     {
+        if (player == null)
+        {
+            return;
+        }
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -51,12 +54,15 @@ public class ThirdPersonCamera : MonoBehaviour
         collisionLayers &= ~(1 << ignoreRaycastLayer);
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
-        
+        if (player == null)
+        {
+            return;
+        }
+
         Vector2 lookInput = lookAction.action != null ? lookAction.action.ReadValue<Vector2>() : Vector2.zero;
 
-        
         yaw += lookInput.x * mouseSensitivity;
         pitch -= lookInput.y * mouseSensitivity;
         pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
@@ -67,8 +73,7 @@ public class ThirdPersonCamera : MonoBehaviour
         Vector3 targetPosition = player.position + Vector3.up * height;
         Vector3 desiredCameraPosition = targetPosition + targetDirection * distance;
 
-        RaycastHit hit;
-        if (Physics.Raycast(targetPosition, targetDirection, out hit, distance, collisionLayers, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(targetPosition, targetDirection, out RaycastHit hit, distance, collisionLayers, QueryTriggerInteraction.Ignore))
         {
             float adjustedDistance = hit.distance - cameraCollisionOffset;
             adjustedDistance = Mathf.Clamp(adjustedDistance, 0.5f, distance);
@@ -83,6 +88,11 @@ public class ThirdPersonCamera : MonoBehaviour
 
     public void SnapCameraToPlayer()
     {
+        if (player == null)
+        {
+            return;
+        }
+
         yaw = player.eulerAngles.y;
 
         Quaternion targetRotation = Quaternion.Euler(pitch, yaw, 0f);
@@ -91,8 +101,7 @@ public class ThirdPersonCamera : MonoBehaviour
         Vector3 targetPosition = player.position + Vector3.up * height;
         Vector3 desiredCameraPosition = targetPosition + targetDirection * distance;
 
-        RaycastHit hit;
-        if (Physics.Raycast(targetPosition, targetDirection, out hit, distance, collisionLayers, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(targetPosition, targetDirection, out RaycastHit hit, distance, collisionLayers, QueryTriggerInteraction.Ignore))
         {
             float adjustedDistance = hit.distance - cameraCollisionOffset;
             adjustedDistance = Mathf.Clamp(adjustedDistance, 0.5f, distance);

@@ -3,12 +3,12 @@ using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    public Transform bulletSpawnPoint;
-    public float bulletSpeed = 50f;
-    public AudioSource audioSource;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform bulletSpawnPoint;
+    [SerializeField] private float bulletSpeed = 50f;
+    [SerializeField] private AudioSource audioSource;
 
-    void Update()
+    private void Update()
     {
         if (Mouse.current != null &&
             Mouse.current.leftButton.wasPressedThisFrame)
@@ -17,17 +17,30 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    void Shoot()
+    private void Shoot()
     {
+        if (bulletPrefab == null || bulletSpawnPoint == null)
+        {
+            return;
+        }
+
         GameObject bullet = Instantiate
         (
             bulletPrefab,
             bulletSpawnPoint.position,
             bulletSpawnPoint.rotation
         );
-        audioSource.Play();
+
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
-        rb.linearVelocity = bulletSpawnPoint.forward * bulletSpeed;
+        if (rb != null)
+        {
+            rb.linearVelocity = bulletSpawnPoint.forward * bulletSpeed;
+        }
     }
 }

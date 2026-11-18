@@ -6,11 +6,16 @@ public class EnemyPool : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private int initialSize = 5;
 
-    private Queue<GameObject> availableEnemies = new Queue<GameObject>();
-    private HashSet<GameObject> availableSet = new HashSet<GameObject>();
+    private readonly Queue<GameObject> availableEnemies = new Queue<GameObject>();
+    private readonly HashSet<GameObject> availableSet = new HashSet<GameObject>();
 
     private void Awake()
     {
+        if (enemyPrefab != null && enemyPrefab.scene.IsValid())
+        {
+            enemyPrefab.SetActive(false);
+        }
+
         for (int i = 0; i < initialSize; i++)
         {
             CreateEnemy();

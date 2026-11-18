@@ -1,21 +1,21 @@
 using UnityEngine;
+
 public class PlayerInventory : MonoBehaviour
 {
-    
-    public int currentBullets = 10;
-    public int maxBullets = 40;
-    
+    [SerializeField] private int currentBullets = 10;
+    [SerializeField] private int maxBullets = 40;
+
+    public int CurrentBullets => currentBullets;
+    public int MaxBullets => maxBullets;
+
     public bool AddAmmo(int amount)
     {
-        if (currentBullets >= maxBullets)
+        if (amount <= 0 || currentBullets >= maxBullets)
         {
-            
             return false;
         }
-        currentBullets += amount;
 
-        
-        currentBullets = Mathf.Clamp(currentBullets, 0, maxBullets);
+        currentBullets = Mathf.Clamp(currentBullets + amount, 0, maxBullets);
 
         return true;
     }

@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class HeavyEnemyDefinition : EnemyDefinition
 {
     public HeavyEnemyDefinition()

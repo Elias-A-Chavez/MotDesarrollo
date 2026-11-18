@@ -1,12 +1,10 @@
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EscapeButtonController : MonoBehaviour
 {
     [SerializeField] private Button escapeButton;
-    [SerializeField] private UnityEvent escapeAction;
 
     private bool bossDefeated;
 
@@ -29,6 +27,7 @@ public class EscapeButtonController : MonoBehaviour
 
         if (escapeButton != null)
         {
+            escapeButton.gameObject.SetActive(true);
             escapeButton.interactable = true;
         }
     }
