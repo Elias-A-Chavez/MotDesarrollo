@@ -83,7 +83,7 @@ public class WaveManager : MonoBehaviour
 
        if (doorController != null)
        {
-            doorController.OpenDoor();
+            doorController.StartBossFight();
        }
     }
 }   

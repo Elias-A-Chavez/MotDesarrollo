@@ -11,6 +11,14 @@ public class EnemyController : MonoBehaviour
         Attack = strategy;
     }
 
+    private void Start()
+    {
+        if (Attack == null && Player != null && NavMeshAgent != null)
+        {
+            Attack = new MeleeAttack(transform, NavMeshAgent, Player);
+        }
+    }
+
     void Update()
     {
         Attack?.Attack();

@@ -49,6 +49,15 @@ public class ItemPickup : MonoBehaviour
 
         isCollected = true;
 
+        Weapon weapon = player.GetComponentInChildren<Weapon>(true);
+
+        if (weapon != null)
+        {
+            weapon.transform.parent.gameObject.SetActive(true);
+        }
+
+        interactionText.gameObject.SetActive(false);
+
         encounterTrigger.StartEncounter();
 
         gameObject.SetActive(false);

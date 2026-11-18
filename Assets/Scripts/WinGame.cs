@@ -55,5 +55,7 @@ public class VictoryTrigger : MonoBehaviour
     {
         
         SceneManager.LoadScene(victorySceneName);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

@@ -8,6 +8,19 @@ public class BossActivation : MonoBehaviour
 
     private bool bossActivated;
 
+    public EnemyHealth BossHealth
+    {
+        get
+        {
+            if (boss == null)
+            {
+                return null;
+            }
+
+            return boss.GetComponent<EnemyHealth>();
+        }
+    }
+
     private void Start()
     {
         if (boss != null)

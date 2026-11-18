@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
+    public event System.Action Defeated;
+
     private int currentHealth;
     private bool isDead;
     private bool isBoss;
@@ -69,6 +71,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             {
                 escapeButtonController.NotifyBossDefeated();
             }
+
+            Defeated?.Invoke();
 
             gameObject.SetActive(false);
             return;
